@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build ATMOS_A0_native.pptx — native, editable IDEF0 A0 decomposition with GLUED connectors.
+"""Build ATMOS_A0_native_glued.pptx — native, editable IDEF0 A0 decomposition with GLUED connectors.
 
 Every connector is glued (begin_connect / end_connect) to box connection points
 (rect connection sites: 0=top, 1=right, 2=bottom, 3=left), so arrows reflow when a
@@ -154,5 +154,5 @@ label(2.0, 9.92, 3.2, 0.32, "M1 Platforms hosting ATMOS node compute", size=9, a
 label(6.0, 9.92, 3.0, 0.32, "M2 ABLE-LBM / reduced models", size=9, align=PP_ALIGN.CENTER)
 label(12.6, 9.92, 3.4, 0.32, "M3 DDS middleware and communications links", size=9, align=PP_ALIGN.CENTER)
 
-prs.save("ATMOS_A0_native.pptx")
-print("saved ATMOS_A0_native.pptx; shapes:", len(slide.shapes))
+prs.save("ATMOS_A0_native_glued.pptx")
+print("saved ATMOS_A0_native_glued.pptx; shapes:", len(slide.shapes))
