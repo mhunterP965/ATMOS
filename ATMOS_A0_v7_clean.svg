@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="3600" height="2200" viewBox="0 0 3600 2200">
+  <!-- ATMOS A0 Decomposition Diagram - v7 clean rebuild. Strict B/W IDEF0. -->
+  <!-- Authoritative model only (ATMOS_A0.yaml). Internal flows F1-F5 only. No inferred arrows. -->
+  <!-- Explicit coordinates per spec. Minimal reroutes only where spec coords would cross a box interior:
+       (a) C2->A6 down-run shifted from x2240 to x2360 (x2240 lies inside A4);
+       (b) M1->A5 routed up x2500 then through the A5/A6 gap (x2740 straight up passes through A6);
+       (c) O1 vertical placed in the left gap (x2340) to keep right-edge output labels uncrossed. -->
+
+  <defs>
+    <marker id="arrow" markerWidth="16" markerHeight="12" refX="14" refY="6"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L14,6 L0,12 Z" fill="black"/>
+    </marker>
+  </defs>
+
+  <style>
+    text { font-family: Helvetica, Arial, sans-serif; fill: black; }
+    .albl { font-size: 18px; }
+    .flbl { font-size: 16px; }
+    .bname { font-size: 18px; }
+    .bdesc { font-size: 13px; }
+    .bnum { font-size: 17px; font-weight: bold; }
+    .id { font-weight: bold; }
+    .conn { stroke: black; stroke-width: 1.8; fill: none; }
+    .frame { stroke: black; stroke-width: 1.4; fill: none; }
+  </style>
+
+  <rect x="0" y="0" width="3600" height="2200" fill="white"/>
+
+  <!-- Title / node / classification -->
+  <text x="1650" y="60" text-anchor="middle" font-size="26" font-weight="bold">A0 — Decompose Conduct Air-Focused Weather Exploitation Operations</text>
+  <text x="3480" y="44" text-anchor="end" font-size="16">Distribution Statement C</text>
+  <text x="3480" y="2160" text-anchor="end" font-size="17" font-weight="bold">Node: A0</text>
+
+  <!-- =========================== A0 DIAGRAM BOUNDARY FRAME =========================== -->
+  <rect class="frame" x="120" y="120" width="3360" height="1960"/>
+
+  <!-- =========================== FUNCTION BOXES =========================== -->
+  <!-- A1 -->
+  <rect x="420" y="850" width="360" height="150" fill="white" stroke="black" stroke-width="2.8"/>
+  <text class="bname" x="600" text-anchor="middle"><tspan x="600" y="900">Acquire Micro-Weather</tspan><tspan x="600" y="922">Observations</tspan></text>
+  <text class="bdesc" x="600" y="952" text-anchor="middle">Ingest local and peer atmospheric data</text>
+  <text class="bnum" x="770" y="990" text-anchor="end">1</text>
+
+  <!-- A2 -->
+  <rect x="920" y="850" width="360" height="150" fill="white" stroke="black" stroke-width="2.8"/>
+  <text class="bname" x="1100" text-anchor="middle"><tspan x="1100" y="900">Generate Local</tspan><tspan x="1100" y="922">Weather State</tspan></text>
+  <text class="bdesc" x="1100" y="952" text-anchor="middle">Produce localized micro-weather estimates</text>
+  <text class="bnum" x="1270" y="990" text-anchor="end">2</text>
+
+  <!-- A3 -->
+  <rect x="1420" y="850" width="360" height="150" fill="white" stroke="black" stroke-width="2.8"/>
+  <text class="bname" x="1600" y="910" text-anchor="middle">Quantify Uncertainty</text>
+  <text class="bdesc" x="1600" y="945" text-anchor="middle">Estimate observation and model uncertainty</text>
+  <text class="bnum" x="1770" y="990" text-anchor="end">3</text>
+
+  <!-- A4 -->
+  <rect x="1920" y="850" width="360" height="150" fill="white" stroke="black" stroke-width="2.8"/>
+  <text class="bname" x="2100" text-anchor="middle"><tspan x="2100" y="896">Federate and Maintain</tspan><tspan x="2100" y="918">Federated Weather Context</tspan></text>
+  <text class="bdesc" x="2100" text-anchor="middle"><tspan x="2100" y="948">Publish, subscribe, and fuse</tspan><tspan x="2100" y="965">weather states into COWP</tspan></text>
+  <text class="bnum" x="2270" y="992" text-anchor="end">4</text>
+
+  <!-- A5 -->
+  <rect x="2560" y="620" width="360" height="150" fill="white" stroke="black" stroke-width="2.8"/>
+  <text class="bname" x="2740" text-anchor="middle"><tspan x="2740" y="662">Detect Threshold Crossings</tspan><tspan x="2740" y="684">(Descriptive Support)</tspan></text>
+  <text class="bdesc" x="2740" text-anchor="middle"><tspan x="2740" y="712">Provide descriptive weather</tspan><tspan x="2740" y="729">context and alerts</tspan></text>
+  <text class="bnum" x="2910" y="760" text-anchor="end">5</text>
+
+  <!-- A6 -->
+  <rect x="2560" y="1080" width="360" height="150" fill="white" stroke="black" stroke-width="2.8"/>
+  <text class="bname" x="2740" text-anchor="middle"><tspan x="2740" y="1122">Produce Mission-Tailored</tspan><tspan x="2740" y="1144">Weather Context</tspan></text>
+  <text class="bdesc" x="2740" text-anchor="middle"><tspan x="2740" y="1172">Generate role-specific</tspan><tspan x="2740" y="1189">weather outputs</tspan></text>
+  <text class="bnum" x="2910" y="1220" text-anchor="end">6</text>
+
+  <!-- =========================== INTERNAL FLOWS F1-F5 =========================== -->
+  <line class="conn" x1="780" y1="925" x2="920" y2="925" marker-end="url(#arrow)"/>
+  <line class="conn" x1="1280" y1="925" x2="1420" y2="925" marker-end="url(#arrow)"/>
+  <line class="conn" x1="1780" y1="925" x2="1920" y2="925" marker-end="url(#arrow)"/>
+  <!-- F4/F5 shared trunk from A4 right -->
+  <polyline class="conn" points="2280,925 2400,925"/>
+  <polyline class="conn" points="2400,925 2400,695 2560,695" marker-end="url(#arrow)"/>
+  <polyline class="conn" points="2400,925 2400,1155 2560,1155" marker-end="url(#arrow)"/>
+
+  <text class="flbl" x="850" y="805" text-anchor="middle"><tspan class="id">F1</tspan> Time/Geo-Tagged, Quality-Checked Observations (IER-03)</text>
+  <text class="flbl" x="1350" y="775" text-anchor="middle"><tspan class="id">F2</tspan> Local Micro-Weather State Estimate (IER-05)</text>
+  <text class="flbl" x="1850" y="805" text-anchor="middle"><tspan class="id">F3</tspan> Confidence Bounds &amp; Risk Envelopes (IER-09)</text>
+  <text class="flbl" x="2450" y="575"><tspan class="id">F4</tspan> Federated Weather</text>
+  <text class="flbl" x="2450" y="595">Context / COWP State</text>
+  <text class="flbl" x="2540" y="1262"><tspan class="id">F5</tspan> Federated Weather</text>
+  <text class="flbl" x="2540" y="1282">Context / COWP State</text>
+
+  <!-- =========================== BOUNDARY INPUTS (from LEFT frame x=120) =========================== -->
+  <polyline class="conn" points="120,760 320,760 320,885 420,885" marker-end="url(#arrow)"/>
+  <polyline class="conn" points="120,940 320,940 320,965 420,965" marker-end="url(#arrow)"/>
+  <polyline class="conn" points="120,1320 2440,1320"/>
+  <polyline class="conn" points="2440,1320 2440,735 2560,735" marker-end="url(#arrow)"/>
+  <polyline class="conn" points="2440,1320 2440,1195 2560,1195" marker-end="url(#arrow)"/>
+
+  <text class="albl" x="150" y="725"><tspan class="id">I1</tspan> Collocated Atmospheric Observations</text>
+  <text class="albl" x="150" y="905"><tspan class="id">I2</tspan> Peer Platform Weather Observations</text>
+  <text class="albl" x="150" y="1285"><tspan class="id">I3</tspan> Mission Weather Threshold Definitions</text>
+
+  <!-- =========================== BOUNDARY CONTROLS (from TOP frame y=120) =========================== -->
+  <!-- C3 -> A4 -->
+  <polyline class="conn" points="2060,120 2060,790 2100,790 2100,850" marker-end="url(#arrow)"/>
+  <!-- C2 -> A4 and A6 -->
+  <polyline class="conn" points="2240,120 2240,760"/>
+  <polyline class="conn" points="2240,760 2160,760 2160,850" marker-end="url(#arrow)"/>
+  <polyline class="conn" points="2240,760 2360,760 2360,1040 2680,1040 2680,1080" marker-end="url(#arrow)"/>
+  <!-- C1 -> A5 and A6 -->
+  <polyline class="conn" points="3000,120 3000,500"/>
+  <polyline class="conn" points="3000,500 2740,500 2740,620" marker-end="url(#arrow)"/>
+  <polyline class="conn" points="3000,500 3000,1040 2800,1040 2800,1080" marker-end="url(#arrow)"/>
+
+  <text class="albl" x="2060" y="100" text-anchor="middle"><tspan class="id">C3</tspan> Network availability and DDS QoS policies</text>
+  <text class="albl" x="2500" y="100" text-anchor="middle"><tspan class="id">C2</tspan> OPSEC / classification guidance</text>
+  <text class="albl" x="3000" y="100" text-anchor="middle"><tspan class="id">C1</tspan> Mission objectives and operational constraints</text>
+
+  <!-- =========================== BOUNDARY OUTPUTS (to RIGHT frame x=3480) =========================== -->
+  <polyline class="conn" points="2280,880 2340,880 2340,520 3480,520" marker-end="url(#arrow)"/>
+  <polyline class="conn" points="2920,695 3480,695" marker-end="url(#arrow)"/>
+  <polyline class="conn" points="2920,1155 3480,1155" marker-end="url(#arrow)"/>
+
+  <text class="albl" x="3140" y="505"><tspan class="id">O1</tspan> Fused COWP State</text>
+  <text class="albl" x="3140" y="680"><tspan class="id">O3</tspan> Weather State Change Notifications</text>
+  <text class="albl" x="3140" y="1140"><tspan class="id">O2</tspan> Mission-Tailored COWP Excerpts</text>
+
+  <!-- =========================== BOUNDARY MECHANISMS (from BOTTOM frame y=2080) =========================== -->
+  <!-- M1 -> A1,A2,A3,A4,A5,A6 -->
+  <polyline class="conn" points="650,2080 650,1840"/>
+  <polyline class="conn" points="600,1840 2740,1840"/>
+  <line class="conn" x1="600" y1="1840" x2="600" y2="1000" marker-end="url(#arrow)"/>
+  <line class="conn" x1="1100" y1="1840" x2="1100" y2="1000" marker-end="url(#arrow)"/>
+  <line class="conn" x1="1600" y1="1840" x2="1600" y2="1000" marker-end="url(#arrow)"/>
+  <line class="conn" x1="2100" y1="1840" x2="2100" y2="1000" marker-end="url(#arrow)"/>
+  <line class="conn" x1="2740" y1="1840" x2="2740" y2="1230" marker-end="url(#arrow)"/>
+  <polyline class="conn" points="2500,1840 2500,925 2740,925 2740,770" marker-end="url(#arrow)"/>
+  <!-- M2 -> A2,A3 -->
+  <polyline class="conn" points="1350,2080 1350,1900"/>
+  <polyline class="conn" points="1100,1900 1600,1900"/>
+  <line class="conn" x1="1160" y1="1900" x2="1160" y2="1000" marker-end="url(#arrow)"/>
+  <line class="conn" x1="1540" y1="1900" x2="1540" y2="1000" marker-end="url(#arrow)"/>
+  <!-- M3 -> A4,A6 -->
+  <polyline class="conn" points="2420,2080 2420,1960"/>
+  <polyline class="conn" points="2100,1960 2840,1960"/>
+  <line class="conn" x1="2200" y1="1960" x2="2200" y2="1000" marker-end="url(#arrow)"/>
+  <line class="conn" x1="2840" y1="1960" x2="2840" y2="1230" marker-end="url(#arrow)"/>
+
+  <text class="albl" x="520" y="2130" text-anchor="middle"><tspan class="id">M1</tspan> Platforms hosting ATMOS node compute</text>
+  <text class="albl" x="1230" y="2130" text-anchor="middle"><tspan class="id">M2</tspan> ABLE-LBM / reduced models</text>
+  <text class="albl" x="2290" y="2130" text-anchor="middle"><tspan class="id">M3</tspan> DDS middleware and communications links</text>
+
+</svg>
