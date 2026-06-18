@@ -1,0 +1,106 @@
+diagram_id: A0
+diagram_type: decomposition
+architecture_name: ATMOS
+package_version: v1
+classification_marking: Distribution Statement C
+title: Decompose Conduct Air-Focused Weather Exploitation Operations
+parent_node: A-0
+parent_function: Conduct Air-Focused Weather Exploitation Operations
+status: draft_not_ready_to_render_without_boundary_arrow_allocation
+
+boxes:
+  - id: A1
+    number: 1
+    name: Acquire Micro-Weather Observations
+    description: Ingest local and peer atmospheric data
+  - id: A2
+    number: 2
+    name: Generate Local Weather State
+    description: Produce localized micro-weather estimates
+  - id: A3
+    number: 3
+    name: Quantify Uncertainty
+    description: Estimate observation and model uncertainty
+  - id: A4
+    number: 4
+    name: Federate and Maintain Federated Weather Context
+    description: Publish, subscribe, and fuse weather states into COWP
+  - id: A5
+    number: 5
+    name: Detect Threshold Crossings (Descriptive Support)
+    description: Provide descriptive weather context and alerts
+  - id: A6
+    number: 6
+    name: Produce Mission-Tailored Weather Context
+    description: Generate role-specific weather outputs
+
+layout:
+  recommended_sequence:
+    - A1
+    - A2
+    - A3
+    - A4
+    - A5
+    - A6
+  arrangement: left_to_right
+
+internal_flows:
+  - id: F1
+    label: Time/Geo-Tagged, Quality-Checked Observations (IER-03)
+    source: A1
+    target: A2
+    receiving_type: Input
+  - id: F2
+    label: Local Micro-Weather State Estimate (IER-05)
+    source: A2
+    target: A3
+    receiving_type: Input
+  - id: F3
+    label: Confidence Bounds & Risk Envelopes (IER-09)
+    source: A3
+    target: A4
+    receiving_type: Input
+
+parent_boundary_arrows_available_but_not_allocated:
+  inputs:
+    - I1: Collocated Atmospheric Observations
+    - I2: Peer Platform Weather Observations
+    - I3: Mission Weather Threshold Definitions
+  controls:
+    - C1: Mission objectives and operational constraints
+    - C2: OPSEC / classification guidance
+    - C3: Network availability and DDS QoS policies
+  outputs:
+    - O1: Fused COWP State
+    - O2: Mission-Tailored COWP Excerpts
+    - O3: Weather State Change Notifications
+  mechanisms:
+    - M1: Platforms hosting ATMOS node compute
+    - M2: ABLE-LBM / reduced models
+    - M3: DDS middleware and communications links
+
+missing_information_required_before_strict_render:
+  - Map each A-0 input to the A0 child function that receives it.
+  - Map each A-0 control to the A0 child function or functions it governs.
+  - Map each A-0 output to the A0 child function that produces it.
+  - Map each A-0 mechanism to the A0 child function or functions it supports.
+  - Confirm whether A4 connects to A5 or A6, or whether A5 and A6 receive only boundary/context inputs.
+  - Confirm whether A5 produces O3.
+  - Confirm whether A6 produces O2.
+  - Confirm whether A4 produces O1.
+
+critical_modeling_constraints:
+  - COWP is emergent, not a node, and not a decision-maker.
+  - ATMOS provides descriptive weather context only.
+  - ATMOS does not perform operational decisions.
+  - Do not invent additional flows.
+
+rendering_constraints:
+  box_count_minimum: 3
+  box_count_maximum: 6
+  preserve_names_exactly: true
+  orthogonal_connectors_only: true
+  no_diagonal_connectors: true
+  black_and_white: true
+  do_not_invent_arrows: true
+  render_only_internal_flows_listed: true

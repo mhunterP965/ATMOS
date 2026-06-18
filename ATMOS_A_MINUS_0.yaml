@@ -1,0 +1,113 @@
+diagram_id: A-0
+diagram_type: context
+architecture_name: ATMOS
+package_version: v1
+classification_marking: Distribution Statement C
+title: ATMOS Operational Architecture Context
+node_title: ATMOS Operational Architecture Context
+top_level_function: Conduct Air-Focused Weather Exploitation Operations
+
+purpose: >
+  Enable distributed platforms to observe atmospheric conditions,
+  estimate local micro-weather state, federate and share results,
+  and support aviation safety, survivability, and mission effectiveness.
+
+viewpoint: >
+  Operational architecture described using DoDAF OV-1 through OV-5b.
+
+boundary:
+  inside:
+    - Observation ingestion
+    - Local weather estimation
+    - Uncertainty quantification
+    - Federation / COWP formation
+    - Dissemination of weather context
+  outside:
+    - Route selection
+    - Maneuver decisions
+    - Command authority
+    - Mission execution decisions
+
+boxes:
+  - id: A-0
+    number: 0
+    name: Conduct Air-Focused Weather Exploitation Operations
+    type: function
+    position: center
+
+arrows:
+  inputs:
+    - id: I1
+      label: Collocated Atmospheric Observations
+      source: Air / Ground Platforms
+      target: A-0
+      side: left
+    - id: I2
+      label: Peer Platform Weather Observations
+      source: Air Platforms
+      target: A-0
+      side: left
+    - id: I3
+      label: Mission Weather Threshold Definitions
+      source: TOC / Platform
+      target: A-0
+      side: left
+
+  controls:
+    - id: C1
+      label: Mission objectives and operational constraints
+      source: Command authority
+      target: A-0
+      side: top
+    - id: C2
+      label: OPSEC / classification guidance
+      source: Security authority
+      target: A-0
+      side: top
+    - id: C3
+      label: Network availability and DDS QoS policies
+      source: Communications environment
+      target: A-0
+      side: top
+
+  outputs:
+    - id: O1
+      label: Fused COWP State
+      source: A-0
+      destination: All subscribers
+      side: right
+    - id: O2
+      label: Mission-Tailored COWP Excerpts
+      source: A-0
+      destination: Platforms / TOC
+      side: right
+    - id: O3
+      label: Weather State Change Notifications
+      source: A-0
+      destination: Platforms / TOC
+      side: right
+
+  mechanisms:
+    - id: M1
+      label: Platforms hosting ATMOS node compute
+      type: System
+      target: A-0
+      side: bottom
+    - id: M2
+      label: ABLE-LBM / reduced models
+      type: System
+      target: A-0
+      side: bottom
+    - id: M3
+      label: DDS middleware and communications links
+      type: System
+      target: A-0
+      side: bottom
+
+rendering_constraints:
+  one_box_only: true
+  preserve_names_exactly: true
+  orthogonal_connectors_only: true
+  no_diagonal_connectors: true
+  black_and_white: true
+  do_not_invent_arrows: true
