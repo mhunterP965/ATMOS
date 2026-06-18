@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="3500" height="1680" viewBox="0 0 3500 1680">
+  <!-- ATMOS A0 Decomposition Diagram - v5 (layout correction of v4). Strict B/W IDEF0. -->
+  <!-- Source model unchanged: ATMOS_A0.yaml. Internal flows limited to F1-F5. No inferred arrows. -->
+  <!-- Fix vs v4: M3 trunk/fork moved below all box bottoms so it no longer crosses A6 interior. -->
+
+  <defs>
+    <marker id="arrow" markerWidth="16" markerHeight="12" refX="14" refY="6"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L14,6 L0,12 Z" fill="black"/>
+    </marker>
+  </defs>
+
+  <style>
+    text { font-family: Helvetica, Arial, sans-serif; fill: black; }
+    .albl { font-size: 18px; }
+    .flbl { font-size: 16px; }
+    .bname { font-size: 18px; }
+    .bnum { font-size: 17px; font-weight: bold; }
+    .id { font-weight: bold; }
+    .conn { stroke: black; stroke-width: 1.8; fill: none; }
+    .frame { stroke: black; stroke-width: 1.4; fill: none; }
+  </style>
+
+  <rect x="0" y="0" width="3500" height="1680" fill="white"/>
+
+  <!-- Title / node / classification -->
+  <text x="1650" y="60" text-anchor="middle" font-size="26" font-weight="bold">A0 — Decompose Conduct Air-Focused Weather Exploitation Operations</text>
+  <text x="3480" y="40" text-anchor="end" font-size="16">Distribution Statement C</text>
+  <text x="3480" y="1650" text-anchor="end" font-size="17" font-weight="bold">Node: A0</text>
+
+  <!-- =========================== A0 DIAGRAM BOUNDARY FRAME =========================== -->
+  <rect class="frame" x="180" y="240" width="2940" height="1240"/>
+
+  <!-- =========================== FUNCTION BOXES =========================== -->
+  <!-- A1 -->
+  <rect x="560" y="820" width="280" height="180" fill="white" stroke="black" stroke-width="2.8"/>
+  <text class="bname" x="700" text-anchor="middle">
+    <tspan x="700" y="900">Acquire Micro-Weather</tspan>
+    <tspan x="700" y="924">Observations</tspan>
+  </text>
+  <text class="bnum" x="830" y="990" text-anchor="end">1</text>
+
+  <!-- A2 -->
+  <rect x="940" y="820" width="280" height="180" fill="white" stroke="black" stroke-width="2.8"/>
+  <text class="bname" x="1080" text-anchor="middle">
+    <tspan x="1080" y="900">Generate Local</tspan>
+    <tspan x="1080" y="924">Weather State</tspan>
+  </text>
+  <text class="bnum" x="1210" y="990" text-anchor="end">2</text>
+
+  <!-- A3 -->
+  <rect x="1320" y="820" width="280" height="180" fill="white" stroke="black" stroke-width="2.8"/>
+  <text class="bname" x="1460" y="916" text-anchor="middle">Quantify Uncertainty</text>
+  <text class="bnum" x="1590" y="990" text-anchor="end">3</text>
+
+  <!-- A4 -->
+  <rect x="1700" y="820" width="280" height="180" fill="white" stroke="black" stroke-width="2.8"/>
+  <text class="bname" x="1840" text-anchor="middle">
+    <tspan x="1840" y="888">Federate and Maintain</tspan>
+    <tspan x="1840" y="912">Federated Weather</tspan>
+    <tspan x="1840" y="936">Context</tspan>
+  </text>
+  <text class="bnum" x="1970" y="990" text-anchor="end">4</text>
+
+  <!-- A5 (top of stacked pair) -->
+  <rect x="2460" y="560" width="280" height="180" fill="white" stroke="black" stroke-width="2.8"/>
+  <text class="bname" x="2600" text-anchor="middle">
+    <tspan x="2600" y="628">Detect Threshold</tspan>
+    <tspan x="2600" y="652">Crossings (Descriptive</tspan>
+    <tspan x="2600" y="676">Support)</tspan>
+  </text>
+  <text class="bnum" x="2730" y="730" text-anchor="end">5</text>
+
+  <!-- A6 (bottom of stacked pair) -->
+  <rect x="2460" y="1100" width="280" height="180" fill="white" stroke="black" stroke-width="2.8"/>
+  <text class="bname" x="2600" text-anchor="middle">
+    <tspan x="2600" y="1168">Produce Mission-</tspan>
+    <tspan x="2600" y="1192">Tailored Weather</tspan>
+    <tspan x="2600" y="1216">Context</tspan>
+  </text>
+  <text class="bnum" x="2730" y="1270" text-anchor="end">6</text>
+
+  <!-- =========================== INTERNAL FLOWS F1-F5 =========================== -->
+  <path class="conn" d="M840,910 H940" marker-end="url(#arrow)"/>
+  <path class="conn" d="M1220,910 H1320" marker-end="url(#arrow)"/>
+  <path class="conn" d="M1600,910 H1700" marker-end="url(#arrow)"/>
+  <!-- F4: A4 -> A5 left -->
+  <path class="conn" d="M1980,890 H2040 V670 H2460" marker-end="url(#arrow)"/>
+  <!-- F5: A4 -> A6 left -->
+  <path class="conn" d="M1980,930 H2140 V1140 H2460" marker-end="url(#arrow)"/>
+
+  <text class="flbl" x="700" y="760" text-anchor="middle"><tspan class="id">F1</tspan> Time/Geo-Tagged, Quality-Checked Observations (IER-03)</text>
+  <text class="flbl" x="1080" y="790" text-anchor="middle"><tspan class="id">F2</tspan> Local Micro-Weather State Estimate (IER-05)</text>
+  <text class="flbl" x="1460" y="760" text-anchor="middle"><tspan class="id">F3</tspan> Confidence Bounds &amp; Risk Envelopes (IER-09)</text>
+  <text class="flbl" x="2160" y="462"><tspan class="id">F4</tspan> Federated Weather</text>
+  <text class="flbl" x="2160" y="482">Context / COWP State</text>
+  <text class="flbl" x="2160" y="862"><tspan class="id">F5</tspan> Federated Weather</text>
+  <text class="flbl" x="2160" y="882">Context / COWP State</text>
+
+  <!-- =========================== BOUNDARY INPUTS (from LEFT frame) =========================== -->
+  <path class="conn" d="M180,890 H560" marker-end="url(#arrow)"/>
+  <path class="conn" d="M180,950 H560" marker-end="url(#arrow)"/>
+  <!-- I3 from left frame -> forks to A5 and A6 left -->
+  <path class="conn" d="M180,400 H2440"/>
+  <path class="conn" d="M2400,400 V630 H2460" marker-end="url(#arrow)"/>
+  <path class="conn" d="M2440,400 V1160 H2460" marker-end="url(#arrow)"/>
+
+  <text class="albl" x="190" y="876"><tspan class="id">I1</tspan> Collocated Atmospheric Observations</text>
+  <text class="albl" x="190" y="940"><tspan class="id">I2</tspan> Peer Platform Weather Observations</text>
+  <text class="albl" x="190" y="388"><tspan class="id">I3</tspan> Mission Weather Threshold Definitions</text>
+
+  <!-- =========================== BOUNDARY CONTROLS (from TOP frame) =========================== -->
+  <!-- C3 -> A4 -->
+  <path class="conn" d="M1850,240 V820" marker-end="url(#arrow)"/>
+  <!-- C2 -> A4 and A6 -->
+  <path class="conn" d="M1780,240 H2700"/>
+  <path class="conn" d="M1780,240 V820" marker-end="url(#arrow)"/>
+  <path class="conn" d="M2700,240 V1060 H2480 V1100" marker-end="url(#arrow)"/>
+  <!-- C1 -> A5 and A6 -->
+  <path class="conn" d="M2600,240 H2760"/>
+  <path class="conn" d="M2600,240 V560" marker-end="url(#arrow)"/>
+  <path class="conn" d="M2760,240 V1040 H2520 V1100" marker-end="url(#arrow)"/>
+
+  <text class="albl" x="1780" y="130" text-anchor="middle"><tspan class="id">C2</tspan> OPSEC / classification guidance</text>
+  <text class="albl" x="1850" y="196" text-anchor="middle"><tspan class="id">C3</tspan> Network availability and DDS QoS policies</text>
+  <text class="albl" x="2600" y="130" text-anchor="middle"><tspan class="id">C1</tspan> Mission objectives and operational constraints</text>
+
+  <!-- =========================== BOUNDARY OUTPUTS (to RIGHT frame) =========================== -->
+  <!-- O1 from A4 (high lane) -->
+  <path class="conn" d="M1980,870 H2090 V360 H3120" marker-end="url(#arrow)"/>
+  <!-- O3 from A5 -->
+  <path class="conn" d="M2740,630 H3120" marker-end="url(#arrow)"/>
+  <!-- O2 from A6 -->
+  <path class="conn" d="M2740,1160 H3120" marker-end="url(#arrow)"/>
+
+  <text class="albl" x="3132" y="354"><tspan class="id">O1</tspan> Fused COWP State</text>
+  <text class="albl" x="3132" y="624"><tspan class="id">O3</tspan> Weather State Change Notifications</text>
+  <text class="albl" x="3132" y="1154"><tspan class="id">O2</tspan> Mission-Tailored COWP Excerpts</text>
+
+  <!-- =========================== BOUNDARY MECHANISMS (from BOTTOM frame) =========================== -->
+  <!-- M1 -> A1,A2,A3,A4,A5,A6 (stub from bottom frame to trunk, then fork up) -->
+  <path class="conn" d="M700,1480 V1320"/>
+  <path class="conn" d="M600,1320 H2600"/>
+  <path class="conn" d="M600,1320 V1000" marker-end="url(#arrow)"/>
+  <path class="conn" d="M1020,1320 V1000" marker-end="url(#arrow)"/>
+  <path class="conn" d="M1400,1320 V1000" marker-end="url(#arrow)"/>
+  <path class="conn" d="M1780,1320 V1000" marker-end="url(#arrow)"/>
+  <path class="conn" d="M2540,1320 V1280" marker-end="url(#arrow)"/>
+  <path class="conn" d="M2360,1320 V870 H2600 V740" marker-end="url(#arrow)"/>
+  <!-- M2 -> A2,A3 -->
+  <path class="conn" d="M1120,1480 V1240"/>
+  <path class="conn" d="M960,1240 H1340"/>
+  <path class="conn" d="M960,1240 V1000" marker-end="url(#arrow)"/>
+  <path class="conn" d="M1340,1240 V1000" marker-end="url(#arrow)"/>
+  <!-- M3 -> A4,A6  (trunk/fork below all box bottoms; A6 entered from bottom perimeter) -->
+  <path class="conn" d="M1860,1480 V1380"/>
+  <path class="conn" d="M1660,1380 H2620"/>
+  <path class="conn" d="M1660,1380 V1000" marker-end="url(#arrow)"/>
+  <path class="conn" d="M2620,1380 V1280" marker-end="url(#arrow)"/>
+
+  <text class="albl" x="640" y="1535" text-anchor="middle"><tspan class="id">M1</tspan> Platforms hosting ATMOS node compute</text>
+  <text class="albl" x="1120" y="1585" text-anchor="middle"><tspan class="id">M2</tspan> ABLE-LBM / reduced models</text>
+  <text class="albl" x="1860" y="1635" text-anchor="middle"><tspan class="id">M3</tspan> DDS middleware and communications links</text>
+
+</svg>
