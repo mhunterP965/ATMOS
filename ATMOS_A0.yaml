@@ -1,0 +1,179 @@
+diagram_id: A0
+diagram_type: decomposition
+architecture_name: ATMOS
+package_version: v1
+classification_marking: Distribution Statement C
+title: Decompose Conduct Air-Focused Weather Exploitation Operations
+parent_node: A-0
+parent_function: Conduct Air-Focused Weather Exploitation Operations
+status: ready_to_render
+boxes:
+  - id: A1
+    number: 1
+    name: Acquire Micro-Weather Observations
+    description: Ingest local and peer atmospheric data
+  - id: A2
+    number: 2
+    name: Generate Local Weather State
+    description: Produce localized micro-weather estimates
+  - id: A3
+    number: 3
+    name: Quantify Uncertainty
+    description: Estimate observation and model uncertainty
+  - id: A4
+    number: 4
+    name: Federate and Maintain Federated Weather Context
+    description: Publish, subscribe, and fuse weather states into COWP
+  - id: A5
+    number: 5
+    name: Detect Threshold Crossings (Descriptive Support)
+    description: Provide descriptive weather context and alerts
+  - id: A6
+    number: 6
+    name: Produce Mission-Tailored Weather Context
+    description: Generate role-specific weather outputs
+layout:
+  recommended_sequence:
+    - A1
+    - A2
+    - A3
+    - A4
+    - A5
+    - A6
+  arrangement: left_to_right
+boundary_arrows:
+  inputs:
+    - id: I1
+      label: Collocated Atmospheric Observations
+      source: Air / Ground Platforms
+      target: A1
+      side: left
+      receiving_type: Input
+    - id: I2
+      label: Peer Platform Weather Observations
+      source: Air Platforms
+      target: A1
+      side: left
+      receiving_type: Input
+    - id: I3
+      label: Mission Weather Threshold Definitions
+      source: TOC / Platform
+      target:
+        - A5
+        - A6
+      side: left
+      receiving_type: Input
+  controls:
+    - id: C1
+      label: Mission objectives and operational constraints
+      source: Command authority
+      target:
+        - A5
+        - A6
+      side: top
+      receiving_type: Control
+    - id: C2
+      label: OPSEC / classification guidance
+      source: Security authority
+      target:
+        - A4
+        - A6
+      side: top
+      receiving_type: Control
+    - id: C3
+      label: Network availability and DDS QoS policies
+      source: Communications environment
+      target: A4
+      side: top
+      receiving_type: Control
+  outputs:
+    - id: O1
+      label: Fused COWP State
+      source: A4
+      destination: All subscribers
+      side: right
+      produced_by: A4
+    - id: O2
+      label: Mission-Tailored COWP Excerpts
+      source: A6
+      destination: Platforms / TOC
+      side: right
+      produced_by: A6
+    - id: O3
+      label: Weather State Change Notifications
+      source: A5
+      destination: Platforms / TOC
+      side: right
+      produced_by: A5
+  mechanisms:
+    - id: M1
+      label: Platforms hosting ATMOS node compute
+      type: System
+      target:
+        - A1
+        - A2
+        - A3
+        - A4
+        - A5
+        - A6
+      side: bottom
+      receiving_type: Mechanism
+    - id: M2
+      label: ABLE-LBM / reduced models
+      type: System
+      target:
+        - A2
+        - A3
+      side: bottom
+      receiving_type: Mechanism
+    - id: M3
+      label: DDS middleware and communications links
+      type: System
+      target:
+        - A4
+        - A6
+      side: bottom
+      receiving_type: Mechanism
+internal_flows:
+  - id: F1
+    label: Time/Geo-Tagged, Quality-Checked Observations (IER-03)
+    source: A1
+    target: A2
+    receiving_type: Input
+  - id: F2
+    label: Local Micro-Weather State Estimate (IER-05)
+    source: A2
+    target: A3
+    receiving_type: Input
+  - id: F3
+    label: Confidence Bounds & Risk Envelopes (IER-09)
+    source: A3
+    target: A4
+    receiving_type: Input
+  - id: F4
+    label: Federated Weather Context / COWP State
+    source: A4
+    target: A5
+    receiving_type: Input
+  - id: F5
+    label: Federated Weather Context / COWP State
+    source: A4
+    target: A6
+    receiving_type: Input
+critical_modeling_constraints:
+  - COWP is emergent, not a node, and not a decision-maker.
+  - ATMOS provides descriptive weather context only.
+  - ATMOS does not perform operational decisions.
+  - A5 detects descriptive threshold crossings only.
+  - A6 produces mission-tailored weather context only.
+  - Do not imply route selection, maneuver decisions, command authority, or mission execution decisions.
+  - Do not invent additional flows.
+rendering_constraints:
+  box_count_minimum: 3
+  box_count_maximum: 6
+  preserve_names_exactly: true
+  orthogonal_connectors_only: true
+  no_diagonal_connectors: true
+  black_and_white: true
+  do_not_invent_arrows: true
+  render_only_internal_flows_listed: true

@@ -6,14 +6,15 @@
 * MODEL_BACKGROUND.md
 * ATMOS_A_MINUS_0.yaml
 * ATMOS_A0_DRAFT.yaml
+* ATMOS_A0.yaml
 * RENDERING_STATUS.md
 
 ## Diagram readiness
 
-| Diagram | Status                            | Notes                                                                               |
-| ------- | --------------------------------- | ----------------------------------------------------------------------------------- |
-| A-0     | Ready to render                   | Complete context diagram packet.                                                    |
-| A0      | Not ready for strict IDEF0 render | Boundary arrow allocation is not yet specified. Internal flows F1-F3 are specified. |
+| Diagram | Status                                 | Notes                                                        |
+| ------- | -------------------------------------- | ------------------------------------------------------------ |
+| A-0     | Ready/rendered if previously completed | Complete context diagram packet.                             |
+| A0      | Ready to render                        | Boundary arrows and A4 downstream flows have been allocated. |
 
 ## Hard stop rule
 
