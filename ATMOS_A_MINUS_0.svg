@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="950" viewBox="0 0 1300 950">
+  <!-- ATMOS A-0 Context Diagram. Strict black-and-white IDEF0 style. -->
+  <!-- Source: ATMOS_A_MINUS_0.yaml. No inferred arrows. -->
+
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="3.5"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L9,3.5 L0,7 Z" fill="black"/>
+    </marker>
+  </defs>
+
+  <style>
+    text { font-family: Helvetica, Arial, sans-serif; fill: black; }
+    .lbl { font-size: 13px; }
+    .clbl { font-size: 12px; }
+    .id { font-weight: bold; }
+    .conn { stroke: black; stroke-width: 1.5; fill: none; }
+  </style>
+
+  <!-- White background -->
+  <rect x="0" y="0" width="1300" height="950" fill="white"/>
+
+  <!-- Title -->
+  <text x="650" y="40" text-anchor="middle" font-size="20" font-weight="bold">ATMOS Operational Architecture Context</text>
+
+  <!-- Central function box -->
+  <rect x="420" y="360" width="460" height="260" fill="white" stroke="black" stroke-width="2.5"/>
+  <text x="650" y="482" text-anchor="middle" font-size="17">
+    <tspan x="650" dy="0">Conduct Air-Focused Weather</tspan>
+    <tspan x="650" dy="24">Exploitation Operations</tspan>
+  </text>
+  <!-- Node reference (lower-right interior corner, IDEF0 convention) -->
+  <text x="865" y="610" text-anchor="end" font-size="14" font-weight="bold">A-0</text>
+
+  <!-- ============ INPUTS (left, arrowheads touch left perimeter x=420) ============ -->
+  <path class="conn" d="M70,420 L420,420" marker-end="url(#arrow)"/>
+  <path class="conn" d="M70,490 L420,490" marker-end="url(#arrow)"/>
+  <path class="conn" d="M70,560 L420,560" marker-end="url(#arrow)"/>
+  <text class="lbl" x="74" y="412"><tspan class="id">I1</tspan>  Collocated Atmospheric Observations</text>
+  <text class="lbl" x="74" y="482"><tspan class="id">I2</tspan>  Peer Platform Weather Observations</text>
+  <text class="lbl" x="74" y="552"><tspan class="id">I3</tspan>  Mission Weather Threshold Definitions</text>
+
+  <!-- ============ CONTROLS (top, arrowheads touch top perimeter y=360) ============ -->
+  <path class="conn" d="M500,130 L500,360" marker-end="url(#arrow)"/>
+  <path class="conn" d="M650,130 L650,360" marker-end="url(#arrow)"/>
+  <path class="conn" d="M800,130 L800,360" marker-end="url(#arrow)"/>
+  <text class="clbl" text-anchor="middle" x="500">
+    <tspan class="id" x="500" y="80">C1</tspan>
+    <tspan x="500" y="95">Mission objectives</tspan>
+    <tspan x="500" y="110">and operational</tspan>
+    <tspan x="500" y="125">constraints</tspan>
+  </text>
+  <text class="clbl" text-anchor="middle" x="650">
+    <tspan class="id" x="650" y="80">C2</tspan>
+    <tspan x="650" y="95">OPSEC /</tspan>
+    <tspan x="650" y="110">classification</tspan>
+    <tspan x="650" y="125">guidance</tspan>
+  </text>
+  <text class="clbl" text-anchor="middle" x="800">
+    <tspan class="id" x="800" y="80">C3</tspan>
+    <tspan x="800" y="95">Network availability</tspan>
+    <tspan x="800" y="110">and DDS QoS</tspan>
+    <tspan x="800" y="125">policies</tspan>
+  </text>
+
+  <!-- ============ OUTPUTS (right, originate at right perimeter x=880, exit to right boundary) ============ -->
+  <path class="conn" d="M880,420 L1240,420" marker-end="url(#arrow)"/>
+  <path class="conn" d="M880,490 L1240,490" marker-end="url(#arrow)"/>
+  <path class="conn" d="M880,560 L1240,560" marker-end="url(#arrow)"/>
+  <text class="lbl" x="892" y="412"><tspan class="id">O1</tspan>  Fused COWP State</text>
+  <text class="lbl" x="892" y="482"><tspan class="id">O2</tspan>  Mission-Tailored COWP Excerpts</text>
+  <text class="lbl" x="892" y="552"><tspan class="id">O3</tspan>  Weather State Change Notifications</text>
+
+  <!-- ============ MECHANISMS (bottom, arrowheads touch bottom perimeter y=620) ============ -->
+  <path class="conn" d="M500,790 L500,620" marker-end="url(#arrow)"/>
+  <path class="conn" d="M650,790 L650,620" marker-end="url(#arrow)"/>
+  <path class="conn" d="M800,790 L800,620" marker-end="url(#arrow)"/>
+  <text class="clbl" text-anchor="middle" x="500">
+    <tspan class="id" x="500" y="808">M1</tspan>
+    <tspan x="500" y="823">Platforms hosting</tspan>
+    <tspan x="500" y="838">ATMOS node compute</tspan>
+  </text>
+  <text class="clbl" text-anchor="middle" x="650">
+    <tspan class="id" x="650" y="808">M2</tspan>
+    <tspan x="650" y="823">ABLE-LBM /</tspan>
+    <tspan x="650" y="838">reduced models</tspan>
+  </text>
+  <text class="clbl" text-anchor="middle" x="800">
+    <tspan class="id" x="800" y="808">M3</tspan>
+    <tspan x="800" y="823">DDS middleware and</tspan>
+    <tspan x="800" y="838">communications links</tspan>
+  </text>
+
+</svg>
