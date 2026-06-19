@@ -151,24 +151,25 @@ path([(R('A2'),MIDY),(L('A3'),MIDY)])             # F2
 path([(R('A3'),MIDY),(L('A4'),MIDY)])             # F3
 path([(R('A4'),3.90),(7.90,3.90),(7.90,2.65),(L('A5'),2.65)])  # F4 -> A5 left
 path([(R('A4'),4.28),(7.90,4.28),(7.90,5.55),(L('A6'),5.55)])  # F5 -> A6 left
+# F1/F2/F3 labels centered directly above their flow gaps (no overlap: 1.6 < 1.65 pitch)
 add_label('F1 Time/Geo-Tagged, Quality-Checked Observations (IER-03)',
-          1.55,2.58,1.95,0.42,10, fill_white=True)
+          1.85,3.06,1.60,0.58,10, fill_white=True)
 add_label('F2 Local Micro-Weather State Estimate (IER-05)',
-          3.25,2.92,1.95,0.42,10, fill_white=True)
+          3.50,3.06,1.60,0.58,10, fill_white=True)
 add_label('F3 Confidence Bounds & Risk Envelopes (IER-09)',
-          4.85,3.24,1.95,0.42,10, fill_white=True)
+          5.13,3.06,1.60,0.58,10, fill_white=True)
 add_label('F4 Federated Weather Context / COWP State',
-          7.62,3.26,1.95,0.42,10, fill_white=True)
+          7.62,3.24,1.95,0.42,10, fill_white=True)
 add_label('F5 Federated Weather Context / COWP State',
-          7.62,4.55,1.95,0.42,10, fill_white=True)
+          7.62,4.58,1.95,0.42,10, fill_white=True)
 
 # ============================ OUTPUTS (right) ============================
 path([(R('A4'),MIDY),(RBX,MIDY)])                 # O1
 path([(R('A5'),2.725),(RBX,2.725)])               # O3
 path([(R('A6'),5.625),(RBX,5.625)])               # O2
-add_label('O1 Fused COWP State',8.30,3.78,1.95,0.26,10, fill_white=True)
-add_label('O3 Weather State Change Notifications',9.78,2.40,0.62,0.55,10, fill_white=True)
-add_label('O2 Mission-Tailored COWP Excerpts',9.78,5.30,0.62,0.55,10, fill_white=True)
+add_label('O1 Fused COWP State',8.30,3.80,1.95,0.26,10, fill_white=True)
+add_label('O3 Weather State Change Notifications',9.78,2.12,0.84,0.55,10, fill_white=True)
+add_label('O2 Mission-Tailored COWP Excerpts',9.78,5.72,0.84,0.55,10, fill_white=True)
 
 # ============================ MECHANISMS (bottom) ============================
 M1y,M2y,M3y = 6.70,7.05,7.40
