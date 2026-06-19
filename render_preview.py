@@ -55,9 +55,13 @@ for sp in slide.shapes:
         sppr.find(qn('a:ln')).find(qn('a:noFill')) is None
     if tag == 'sp':
         node = txt.split('\n')[0].strip()
-        is_box = node in ('A1','A2','A3','A4','A5','A6')
+        try:
+            is_box = str(sp.fill.type) == 'SOLID (1)'
+        except Exception:
+            is_box = False
+        is_box = (is_box or node in ('A1','A2','A3','A4','A5','A6')) and has_line
         is_frame = (w > 9 and h > 6)
-        if is_box or is_frame or (has_line and txt.strip() == ''):
+        if has_line:    # only true boxes / frame / node-cell carry a visible border
             ax.add_patch(Rectangle((x, y), w, h, fill=False,
                                    edgecolor='black', lw=1.2 if is_box or is_frame else 0.8))
         if txt.strip():
